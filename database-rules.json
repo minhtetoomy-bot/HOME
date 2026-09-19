@@ -1,0 +1,9 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "profiles": { "$uid": { ".read": "auth != null", ".write": "auth != null && auth.uid === $uid" } },
+    "privateUsers": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": "auth != null && auth.uid === $uid" } },
+    "phoneIndex": { "$phoneHash": { ".read": "auth != null", ".write": "auth != null" } }
+  }
+}
