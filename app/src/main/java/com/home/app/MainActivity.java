@@ -106,7 +106,7 @@ public class MainActivity extends Activity {
         if(p.length()<8){toast("Enter a valid phone number.");return;}
         if(!p.startsWith("+")){p="+"+p;}
         pendingPhone=p;
-        PhoneAuthOptions o=PhoneAuthOptions.newBuilder(auth).setPhoneNumber(p).setTimeout(60, TimeUnit.SECONDS).setActivity(this)
+        PhoneAuthOptions o=PhoneAuthOptions.newBuilder(auth).setPhoneNumber(p).setTimeout(60L, TimeUnit.SECONDS).setActivity(this)
             .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
                 @Override public void onVerificationCompleted(PhoneAuthCredential c){ signIn(c); }
                 @Override public void onVerificationFailed(FirebaseException e){ toast(e.getMessage()==null?"Phone verification failed":e.getMessage()); }
